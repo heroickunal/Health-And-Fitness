@@ -10,55 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import g1.g1;
-import situps.sp;
-import gc2.gc2;
-import pushups.pu;
-import calculator.c;
+
 
 
 
 public class calculator extends AppCompatActivity {
 
 
-            g1 GU=new g1(12,3);
-            g1 GU2=new g1(12,3);
-            g1 GU3=new g1(12,3);
-            g1 GU4=new g1(12,3);
-            g1 GU5=new g1(12,3);
-            g1 GU6=new g1(12,3);
-            g1 GU7=new g1(12,3);
-            g1 GU8=new g1(12,3);
-            g1 GU9=new g1(12,3);
-            g1 GU10=new g1(12,3);
-            g1 GU11=new g1(12,3);
-            g1 GU12=new g1(12,3);
-            g1 GU13=new g1(12,3);
-            g1 GU14=new g1(12,3);
-            g1 GU15=new g1(12,3);
-            g1 GU16=new g1(12,3);
-            g1 GU17=new g1(12,3);
-            g1 GU18=new g1(12,3);
-    gc2 GcU=new gc2(12);
-    gc2 GcU2=new gc2(12);
-    gc2 GcU3=new gc2(12);
-    gc2 GcU4=new gc2(13);
-    gc2 GcU5=new gc2(1);
-    sp gc1=new sp();
-    sp gc2=new sp();
-    sp gc3=new sp();
-    sp gc4=new sp();
-    sp gc5=new sp();
-    pu p1=new pu();
-    pu p2=new pu();
-    pu p3=new pu();
-    pu p4=new pu();
-    pu p5=new pu();
-    c c1=new c();
-    c c2=new c();
-    c c3=new c();
-    c c4=new c();
-    c c5=new c();
+
 
 
 
@@ -216,24 +175,7 @@ public class calculator extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         mValueTwo = Float.parseFloat(edt1.getText() + "");
-                        g1 GU=new g1(12,3);
-                        g1 GU2=new g1(12,3);
-                        g1 GU3=new g1(12,3);
-                        g1 GU4=new g1(12,3);
-                        g1 GU5=new g1(12,3);
-                        g1 GU6=new g1(12,3);
-                        g1 GU7=new g1(12,3);
-                        g1 GU8=new g1(12,3);
-                        g1 GU9=new g1(12,3);
-                        g1 GU10=new g1(12,3);
-                        g1 GU11=new g1(12,3);
-                        g1 GU12=new g1(12,3);
-                        g1 GU13=new g1(12,3);
-                        g1 GU14=new g1(12,3);
-                        g1 GU15=new g1(12,3);
-                        g1 GU16=new g1(12,3);
-                        g1 GU17=new g1(12,3);
-                        g1 GU18=new g1(12,3);
+
 
 
                         if (mAddition == true){
@@ -264,44 +206,7 @@ public class calculator extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         //edt1.setText("");
-                        GU=null;
-                        GU2=null;
-                        GU3=null;
-                        GU4=null;
-                        GU5=null;
-                        GU6=null;
-                        GU7=null;
-                        GU8=null;
-                        GU9=null;
-                        GU10=null;
-                        GU11=null;
-                        GU12=null;
-                        GU13=null;
-                        GU14=null;
-                        GU15=null;
-                        GU16=null;
-                        GU17=null;
-                        GU18=null;
-                        GcU2=null;
-                        GcU=null;
-                        GcU3=null;
-                        GcU4=null;
-                        GcU5=null;
-                        gc1=null;
-                        gc2=null;
-                        gc3=null;
-                        gc4=null;
-                        gc5=null;
-                        p1=null;
-                        p2=null;
-                        p3=null;
-                        p4=null;
-                        p5=null;
-                        c1=null;
-                        c2=null;
-                        c3=null;
-                        c4=null;
-                        c5=null;
+
 
 
                         System.gc();

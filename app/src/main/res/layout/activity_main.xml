@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,55 +8,69 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
-    <Button
-        android:id="@+id/su"
+    <EditText
+        android:id="@+id/logemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginBottom="21dp"
-        android:text="Sit Ups"
-        app:layout_constraintBottom_toTopOf="@+id/pu"
-        app:layout_constraintStart_toStartOf="@+id/pu" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/logpass1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logemail"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/pu"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="21dp"
-        android:text="PUSH UPS"
-        app:layout_constraintBottom_toTopOf="@+id/c"
-        app:layout_constraintEnd_toEndOf="@+id/d" />
+        android:layout_below="@+id/logpass1"
+        android:layout_alignStart="@+id/logpass1"
+        android:layout_alignLeft="@+id/logpass1"
+        android:onClick="login"
+        android:text="Login" />
 
     <Button
-        android:id="@+id/c"
+        android:id="@+id/signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginBottom="19dp"
-        android:text="CALCULATOR"
-        app:layout_constraintBottom_toTopOf="@+id/d"
-        app:layout_constraintStart_toStartOf="@+id/pu" />
+        android:layout_alignTop="@+id/login"
+        android:layout_toEndOf="@+id/login"
+        android:layout_toRightOf="@+id/login"
+        android:onClick="signup"
+        android:text="SIGNUP"/>
 
-    <Button
-        android:id="@+id/d"
+    <TextView
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
-        android:text="Pedometer"
-        app:layout_constraintBottom_toTopOf="@+id/e"
-        app:layout_constraintStart_toStartOf="@+id/e" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="86dp"
+        android:text="Email"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/e"
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="54dp"
-        android:text="Activity 5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="139dp"
+        android:text="Pass"
+        android:textSize="24sp"
+        android:textStyle="bold" android:layout_alignRight="@+id/textView5"/>
+
+
+</RelativeLayout>

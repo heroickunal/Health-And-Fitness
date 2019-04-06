@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+
+        <Button
+            android:id="@+id/su"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginBottom="21dp"
+            android:text="Sit Ups"
+            app:layout_constraintBottom_toTopOf="@+id/pu"
+            app:layout_constraintStart_toStartOf="@+id/pu" />
+
+        <Button
+            android:id="@+id/pu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="21dp"
+            android:text="PUSH UPS"
+            app:layout_constraintBottom_toTopOf="@+id/c"
+            app:layout_constraintEnd_toEndOf="@+id/d" />
+
+        <Button
+            android:id="@+id/c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginBottom="19dp"
+            android:text="CALCULATOR"
+            app:layout_constraintBottom_toTopOf="@+id/d"
+            app:layout_constraintStart_toStartOf="@+id/pu" />
+
+        <Button
+            android:id="@+id/d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+            android:text="Pedometer"
+            app:layout_constraintBottom_toTopOf="@+id/e"
+            app:layout_constraintStart_toStartOf="@+id/e" />
+
+        <Button
+            android:id="@+id/e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="54dp"
+            android:text="Activity 5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginStart="141dp"
+            android:layout_marginLeft="141dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="53dp" />
+</android.support.constraint.ConstraintLayout>

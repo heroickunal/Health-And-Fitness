@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".m2">
+    tools:context=".WeekActivity">
 
     <com.jjoe64.graphview.GraphView
-        android:id="@+id/graphxml"
+        android:id="@+id/weekgraphxml"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
 
-         />
+        />
 
     <TextView
         android:id="@+id/textView"
@@ -23,7 +23,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="153dp"
-        android:text="Total Calories Burned :"
+        android:text="Average Calories Burned :"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -35,11 +35,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="2dp"
-    android:layout_marginLeft="2dp"
-    android:layout_marginBottom="86dp"
-    android:text="Average Heart Rate :"
-    android:textSize="24sp"
-    android:textStyle="bold" />
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="86dp"
+        android:text="Average Heart Rate :"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/totalcaloriesxml"
@@ -68,4 +68,5 @@
         android:text="HR"
         android:textSize="24sp"
         android:textStyle="bold" />
+
 </RelativeLayout>

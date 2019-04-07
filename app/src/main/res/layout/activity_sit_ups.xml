@@ -12,12 +12,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="156dp"
         android:text="Reps"
         android:textColor="#4169E1"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textStyle="bold" />
 
     <TextView
@@ -27,16 +27,31 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="247dp"
-        android:layout_marginLeft="247dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginLeft="121dp"
+        android:layout_marginTop="160dp"
         android:text="Calorie"
         android:textColor="#4169E1"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/repsxml"
+        android:id="@+id/textView11"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="229dp"
+        android:layout_marginLeft="229dp"
+        android:layout_marginTop="159dp"
+        android:text="Heart Rate"
+        android:textColor="#4169E1"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView1"
@@ -56,11 +71,76 @@
         android:layout_alignStart="@+id/textView1"
         android:layout_centerVertical="true"
 
-        android:layout_marginStart="207dp"
+        android:layout_marginStart="124dp"
         android:layout_marginTop="30dp"
         android:text="calorie"
         android:textColor="#FF0000"
         android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/caloriedispxml2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView1"
+        android:layout_centerVertical="true"
+
+        android:layout_marginStart="275dp"
+        android:layout_marginTop="30dp"
+        android:text="HR"
+        android:textColor="#FF0000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+    android:id="@+id/barxml"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="289dp"
+    android:layout_height="51dp"
+    android:layout_alignEnd="@+id/textView8"
+    android:layout_alignParentBottom="true"
+    android:layout_marginEnd="-123dp"
+    android:layout_marginBottom="133dp"
+    android:max="4"
+    android:progress="4" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barxml"
+        android:layout_alignStart="@+id/tv_steps"
+        android:layout_marginTop="-133dp"
+        android:text="LOW"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView16"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginBottom="0dp"
+        android:text="MED"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="303dp"
+        android:layout_marginLeft="303dp"
+        android:layout_marginBottom="108dp"
+        android:text="HIGH"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

@@ -28,11 +28,12 @@ private TextView temp;
 
 
         // Create Inner Thread Class
-        Button situps,pushups,C,m1,m2;
+        Button situps,pushups,C,m1,m2,weekactvity;
 
         situps = findViewById(R.id.su);
         m1 = findViewById(R.id.d);
         m2 = findViewById(R.id.e);
+        weekactvity=findViewById(R.id.weekactivityxml);
 
         pushups= findViewById(R.id.pu);
         C = findViewById(R.id.c);
@@ -45,6 +46,7 @@ private TextView temp;
         C.setOnClickListener(this);
         m1.setOnClickListener(this);
         m2.setOnClickListener(this);
+        weekactvity.setOnClickListener(this);
 
         SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
 
@@ -106,7 +108,10 @@ private TextView temp;
                 Intent i5=new Intent(Login.this,m2.class);
                 startActivity(i5);
                 break;
-
+            case R.id.weekactivityxml:
+                Intent i6=new Intent(Login.this,WeekActivity.class);
+                startActivity(i6);
+                break;
         }
     }
 

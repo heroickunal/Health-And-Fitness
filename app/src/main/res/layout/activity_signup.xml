@@ -5,19 +5,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Signup">
+    tools:context=".Signup"
+    android:background="@drawable/back">
 
 
     <EditText
         android:id="@+id/upname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/uppass"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="167dp"
         android:ems="10"
         android:inputType="textPersonName" />
-
 
 
     <EditText
@@ -29,15 +30,24 @@
         android:layout_alignLeft="@+id/upemail"
         android:layout_alignEnd="@+id/upemail"
         android:layout_alignRight="@+id/upemail"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginRight="-2dp"
         android:visibility="visible" />
 
     <Button
         android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="93dp"
+        android:layout_height="43dp"
         android:layout_below="@+id/uppass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="189dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginRight="134dp"
+        android:background="@drawable/button2"
         android:onClick="signup"
         android:text="NEXT" />
 
@@ -48,9 +58,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="173dp"
         android:text="Name"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -61,7 +71,8 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView2"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="119dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="235dp"
         android:text="Email"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -72,7 +83,8 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView2"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="167dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="291dp"
         android:text="Pass"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -82,10 +94,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/upname"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
+        android:layout_alignParentEnd="true"
 
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
+        android:ems="10"
         android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        app:srcCompat="@mipmap/healthandfitnesslogo_round" />
 
 
 </RelativeLayout>

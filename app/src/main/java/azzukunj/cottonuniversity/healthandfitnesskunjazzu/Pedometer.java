@@ -41,11 +41,11 @@ public class Pedometer extends AppCompatActivity  implements SensorEventListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedometer);
-        tv_steps = findViewById(R.id.tv_steps);
+        tv_steps = findViewById(R.id.caloriedispxml);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
 
-        caloriedisp = (TextView) findViewById (R.id.caloriedispxml);
+        caloriedisp = (TextView) findViewById (R.id.tv_steps);
 
 
         SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);

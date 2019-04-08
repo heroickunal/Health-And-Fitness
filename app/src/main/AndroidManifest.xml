@@ -32,6 +32,13 @@
         <activity android:name=".Signup" />
         <activity android:name=".UserDetails" />
         <activity android:name=".WeekActivity"></activity>
+
+
+
+
+
+
+
     </application>
 
 </manifest>

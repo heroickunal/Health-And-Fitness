@@ -1,87 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+android:background="@drawable/back"
+    tools:context=".Login"
+    tools:layout_editor_absoluteY="25dp">
 
 
         <Button
             android:id="@+id/su"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginBottom="21dp"
-            android:text="Sit Ups"
-            app:layout_constraintBottom_toTopOf="@+id/pu"
-            app:layout_constraintStart_toStartOf="@+id/pu" />
+            android:layout_width="128dp"
+            android:layout_height="130dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_fitness_center_black_24dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="39dp" />
 
         <Button
             android:id="@+id/pu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="21dp"
-            android:text="PUSH UPS"
-            app:layout_constraintBottom_toTopOf="@+id/c"
-            app:layout_constraintEnd_toEndOf="@+id/d" />
+            android:layout_width="128dp"
+            android:layout_height="130dp"
+            android:layout_toRightOf="@+id/d"
+            android:background="@drawable/ic_vertical_align_bottom_black_24dp"
+            tools:layout_editor_absoluteX="255dp"
+            tools:layout_editor_absoluteY="44dp" />
 
         <Button
             android:id="@+id/c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="19dp"
-            android:text="CALCULATOR"
-            app:layout_constraintBottom_toTopOf="@+id/d"
-            app:layout_constraintStart_toStartOf="@+id/pu" />
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="100dp"
+            android:layout_height="107dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="218dp"
+            android:layout_marginEnd="6dp"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="329dp" />
 
         <Button
             android:id="@+id/d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="19dp"
-            android:text="Pedometer"
-            app:layout_constraintBottom_toTopOf="@+id/e"
-            app:layout_constraintStart_toStartOf="@+id/e" />
+            android:layout_width="128dp"
+            android:layout_height="130dp"
+            android:layout_toRightOf="@+id/su"
+            android:background="@drawable/ic_directions_run_black_24dp"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="39dp" />
 
         <Button
             android:id="@+id/e"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="120dp"
-            android:text="DAILY ACTIVITY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_width="129dp"
+            android:layout_height="140dp"
+            android:layout_below="@+id/textView12"
+            android:layout_toRightOf="@+id/textView18"
+            android:background="@drawable/ic_assessment_black_24dp"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="399dp" />
 
         <TextView
-            android:id="@+id/temp"
+            android:id="@+id/q"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="141dp"
-            android:layout_marginLeft="141dp"
-            android:layout_marginTop="53dp"
-            android:layout_marginBottom="341dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/weekactivityxml"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="30dp"
+            android:layout_below="@+id/weekactivityxml"
+            android:layout_toRightOf="@id/space1"
+            android:text=" Week Activities"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
 
         <Button
             android:id="@+id/weekactivityxml"
+            android:layout_width="128dp"
+            android:layout_height="140dp"
+            android:layout_below="@+id/textView12"
+            android:layout_toRightOf="@+id/space1"
+            android:background="@drawable/ic_assignment_turned_in_black_24dp"
+            tools:layout_editor_absoluteX="130dp"
+            tools:layout_editor_absoluteY="39dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="128dp"
+            android:layout_height="62dp"
+            android:layout_below="@+id/d"
+            android:layout_toRightOf="@+id/textView13"
+            android:text="    Pedometer"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="132dp"
+            tools:layout_editor_absoluteY="135dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="128dp"
+            android:layout_height="62dp"
+            android:layout_below="@+id/su"
+            android:text="          Sit Ups"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="135dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="128dp"
+            android:layout_height="62dp"
+            android:layout_below="@+id/pu"
+            android:layout_toRightOf="@+id/textView12"
+            android:text="     Push Ups"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="258dp"
+            tools:layout_editor_absoluteY="135dp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="159dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/e"
+
+
+            android:text="       Dailly Activity"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="159dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/button"
+
+
+            android:text="       Hydrating Alert"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="159dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/button"
+
+            android:layout_toRightOf="@id/space"
+            android:text="       Settings"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="30dp"
+            android:layout_height="140dp"
+            android:layout_below="@id/textView13"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="186dp"
+            android:text=""
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="30dp"
+            android:layout_height="140dp"
+            android:layout_below="@id/textView15"
+
+            android:text=""
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/space1"
+            android:layout_width="63dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/textView12"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="151dp"
+            android:layout_toEndOf="@+id/e"
+            android:layout_toRightOf="@+id/e" />
+
+        <TextView
+            android:id="@+id/space"
+            android:layout_width="63dp"
+            android:layout_height="113dp"
+            android:layout_below="@+id/space1"
+
+
+            android:layout_marginTop="39dp"
+            android:layout_toEndOf="@+id/e"
+            android:layout_toRightOf="@+id/textView8" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginBottom="54dp"
-            android:text="WEEK ACTIVITY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/e"
-            app:layout_constraintTop_toBottomOf="@+id/temp" />
-</android.support.constraint.ConstraintLayout>
+            android:id="@+id/space2"
+            android:layout_below="@id/textView15"
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="128dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/textView15"
+            android:layout_toRightOf="@id/textView16"
+            android:background="@drawable/ic_local_drink_black_24dp" />
+
+        <Button
+            android:id="@+id/setting"
+            android:layout_width="128dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/q"
+            android:layout_toRightOf="@id/space1"
+            android:background="@drawable/ic_settings_black_24dp" />
+
+</RelativeLayout>

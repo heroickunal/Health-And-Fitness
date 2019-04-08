@@ -44,10 +44,10 @@ public int total=0;
 
 
         //test
-        for (int i = 123; i <= 133; i++) {
+        for (int i = 772; i <= 782; i++) {
             String details = sp.getString(Integer.toString(i) + "day", "0");
             int y = Integer.parseInt(details);
-            graphSeries.appendData(new DataPoint(i, y), true, 20);
+            graphSeries.appendData(new DataPoint(i, y), true, 10);
             total = total + y;
             SharedPreferences.Editor editor = sp.edit();
 

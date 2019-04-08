@@ -58,8 +58,8 @@ public class sitUps extends Activity implements SensorEventListener  {
         setContentView(R.layout.activity_sit_ups);
 
 
-        z = (TextView) findViewById (R.id.tv_steps);
-        caloriedisp = (TextView) findViewById (R.id.caloriedispxml);
+        z = (TextView) findViewById (R.id.caloriedispxml);
+        caloriedisp = (TextView) findViewById (R.id.tv_steps);
         bar=findViewById(R.id.barxml);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);

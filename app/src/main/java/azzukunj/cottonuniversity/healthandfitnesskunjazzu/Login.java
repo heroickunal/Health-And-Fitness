@@ -38,7 +38,7 @@ private TextView temp;
         pushups= findViewById(R.id.pu);
         C = findViewById(R.id.c);
 
-        temp = findViewById(R.id.temp);
+       // temp = findViewById(R.id.temp);
 
 
         situps.setOnClickListener(this);
@@ -58,7 +58,7 @@ private TextView temp;
         String id=sp.getString("id","Email or Password is incorrect");
         String t=sp.getString(id+"age","Email or Password is incorrect");
 
-        temp.setText(t);
+
 
     }
 

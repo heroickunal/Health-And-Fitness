@@ -47,9 +47,9 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        reps=findViewById(R.id.tv_steps);
+        reps=findViewById(R.id.caloriedispxml);
 
-        caloriedisp = (TextView) findViewById (R.id.caloriedispxml);
+        caloriedisp = (TextView) findViewById (R.id.tv_steps);
 
 
         SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);

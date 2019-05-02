@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="azzukunj.cottonuniversity.healthandfitnesskunjazzu">
-
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -14,12 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+
+        <activity android:name=".Hydration"></activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".pushUps" />
         <activity android:name=".sitUps" />
@@ -31,14 +36,9 @@
         <activity android:name=".Welcome" />
         <activity android:name=".Signup" />
         <activity android:name=".UserDetails" />
-        <activity android:name=".WeekActivity"></activity>
-
-
-
-
-
-
-
+        <activity android:name=".WeekActivity" />
+        <receiver android:name=".AlarmReceiver" />
+        <activity android:name=".NotificationActivity" />
     </application>
 
 </manifest>

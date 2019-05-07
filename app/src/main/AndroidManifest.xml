@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -15,16 +16,12 @@
         android:theme="@style/AppTheme">
 
 
-
-        <activity android:name=".Hydration"></activity>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".pushUps" />
         <activity android:name=".sitUps" />
@@ -37,7 +34,9 @@
         <activity android:name=".Signup" />
         <activity android:name=".UserDetails" />
         <activity android:name=".WeekActivity" />
+<activity android:name=".Hydration"></activity>
         <receiver android:name=".AlarmReceiver" />
+
         <activity android:name=".NotificationActivity" />
     </application>
 

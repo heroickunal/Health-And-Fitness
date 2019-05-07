@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Hydration">
+    tools:context=".Hydration"
+    android:background="@drawable/back">
 
     <Button
         android:id="@+id/on"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="238dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginTop="183dp"
+        android:layout_marginBottom="54dp"
         android:onClick="on"
         android:text="Hydration Timer On"
         app:layout_constraintBottom_toTopOf="@+id/off"
@@ -23,23 +24,21 @@
         android:id="@+id/off"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="49dp"
+        android:layout_marginBottom="68dp"
         android:onClick="off"
         android:text="Hydration Timer Off"
         app:layout_constraintBottom_toTopOf="@+id/onoff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/on"
         app:layout_constraintTop_toBottomOf="@+id/on" />
 
     <TextView
         android:id="@+id/onoff"
         android:layout_width="115dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="231dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/off" />
 </android.support.constraint.ConstraintLayout>

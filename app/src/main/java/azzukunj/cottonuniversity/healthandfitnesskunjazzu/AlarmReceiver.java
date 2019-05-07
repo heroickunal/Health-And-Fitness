@@ -14,7 +14,7 @@ import android.os.Build;
 import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
 public class AlarmReceiver extends BroadcastReceiver {
-    private static final String CHANNEL_ID = "com.singhajit.notificationDemo.channelId";
+    private static final String CHANNEL_ID = "com.channelId";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -44,7 +44,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
-                "NotificationDemo",
+                "Notification",
                 IMPORTANCE_DEFAULT
             );
             notificationManager.createNotificationChannel(channel);

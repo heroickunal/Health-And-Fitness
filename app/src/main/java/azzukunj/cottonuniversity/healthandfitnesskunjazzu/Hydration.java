@@ -17,23 +17,18 @@ import java.util.Calendar;
 
 public class Hydration extends AppCompatActivity {
 private TextView textView;
+private Handler mhandler=new Handler();
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hydration);
         textView=findViewById(R.id.onoff);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
-
-        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, 5);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
 
     }
-        public void on (View v){
+      /*  public void on (View v){
            SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
 
 
@@ -51,7 +46,7 @@ private TextView textView;
           // jobintent.enqueueWork(this, serviceIntent);
 
 
-        }
+        }*/
 
     public void off(View v)
     {
@@ -63,8 +58,54 @@ private TextView textView;
 
         String statushydration=sp.getString("statushydration","000");
         textView.setText(statushydration);
-
+mhandler.removeCallbacks(mToastRunnable);
     }
+
+    public void on(View v) {
+
+        mToastRunnable.run();
+    }
+    private Runnable mToastRunnable=new Runnable() {
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        public void run() {
+            try {
+                SharedPreferences sp = getSharedPreferences("preferences", MODE_PRIVATE);
+
+                String loop = sp.getString("", "statushydration");
+
+
+
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("statushydration", "ON");
+                    editor.apply();
+
+                    editor.putString("hydration", "1");
+                    editor.apply();
+                    String statushydration = sp.getString("statushydration", "OFF");
+                    textView.setText(statushydration);
+
+
+                    Intent notificationIntent = new Intent(Hydration.this, AlarmReceiver.class);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(Hydration.this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    Calendar cal = Calendar.getInstance();
+                    cal.add(Calendar.SECOND, 5);
+                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
+                    mhandler.postDelayed(this, 5000);
+                }
+
+
+
+            catch (Exception e)
+            {
+
+            }
+
+        }
+    };
 
     }
 

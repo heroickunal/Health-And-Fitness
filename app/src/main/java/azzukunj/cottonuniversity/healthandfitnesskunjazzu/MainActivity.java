@@ -64,12 +64,7 @@ public class MainActivity extends Activity {
                   Toast.makeText(getApplicationContext(),"Email or Password wrong",LENGTH_SHORT).show();
         }
 
-
-
-
-
-
-}}
+    }}
 
 
 

@@ -26,6 +26,10 @@ private Handler mhandler=new Handler();
         setContentView(R.layout.activity_hydration);
         textView=findViewById(R.id.onoff);
 
+        SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
+        String statushydration=sp.getString("statushydration","000");
+        textView.setText(statushydration);
+
 
     }
       /*  public void on (View v){
@@ -92,21 +96,17 @@ mhandler.removeCallbacks(mToastRunnable);
                     Intent notificationIntent = new Intent(Hydration.this, AlarmReceiver.class);
                     PendingIntent broadcast = PendingIntent.getBroadcast(Hydration.this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                     Calendar cal = Calendar.getInstance();
-                    cal.add(Calendar.SECOND, 5);
-                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
-                    mhandler.postDelayed(this, 5000);
+                    //cal.add(Calendar.SECOND, 5);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES,broadcast);                    mhandler.postDelayed(this, 5000);
                 }
 
 
 
             catch (Exception e)
             {
-
             }
 
         }
     };
 
     }
-
-

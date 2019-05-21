@@ -1,102 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:layout_editor_absoluteY="81dp"
-    android:background="@drawable/back">
 
-    <EditText
-        android:id="@+id/logemail"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:background="@drawable/greenback">
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@mipmap/healthandfitnesslogo_round" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColorHint="#FAF4F4">
+
+        <EditText
+            android:id="@+id/logemail"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:backgroundTint="#ffff"
+            android:hint="   Username"
+            android:inputType="textPersonName"
+            android:textColor="#F8F4F4"
+            android:textSize="20sp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#FCFAFA">
+
+        <EditText
+            android:id="@+id/logpass1"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#ffff"
+            android:hint="   Password"
+            android:inputType="textPassword"
+            android:textColor="#FDFBFB"
+            android:textSize="20sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="196dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/logpass1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/logemail"
-        android:layout_alignStart="@+id/logemail"
-        android:layout_marginTop="-4dp"
-        android:ems="10"
-        android:inputType="textPassword" />
+        android:layout_gravity="right"
+        android:layout_marginTop="16dp"
+        android:text="Forgot Password?"
+        android:textColor="#FCF9F9"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/login"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
-        android:layout_below="@+id/logpass1"
-        android:layout_alignStart="@+id/logpass1"
-        android:layout_alignLeft="@+id/logpass1"
-        android:background="@drawable/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#FDFCFD"
         android:onClick="login"
-        android:text="Login"
-        android:textSize="16sp"
+        android:text="Log In"
+        android:textColor="#141212"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/signup"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
-        android:layout_alignTop="@+id/login"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/login"
-        android:layout_toRightOf="@+id/login"
-        android:background="@drawable/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#FCFCFC"
         android:onClick="signup"
-        android:text="Signup"
-        android:textSize="16sp"
+        android:text="Sign Up"
+        android:textColor="#1F1D1D"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="200dp"
-        android:text="Email"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView5"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="250dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:text="Pass"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="93dp"
-        app:srcCompat="@mipmap/healthandfitnesslogo_round" />
-
-
-</RelativeLayout>
+    </LinearLayout>

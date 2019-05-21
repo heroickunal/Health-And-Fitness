@@ -12,27 +12,27 @@
 
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:src="@mipmap/healthandfitnesslogo_round" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@mipmap/healthandfitnesslogo_round" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textColorHint="#FCF8F8">
+        android:textColorHint="#F8F5F5">
 
         <EditText
-            android:id="@+id/age"
+            android:id="@+id/logemail"
             style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
             android:backgroundTint="#ffff"
-            android:hint="   Age"
+            android:hint="   Username"
             android:inputType="textPersonName"
-            android:textColor="#cccccc"
+            android:textColor="#FAF6F6"
             android:textSize="20sp" />
 
     </android.support.design.widget.TextInputLayout>
@@ -41,51 +41,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textColorHint="#FDF9F9">
+        android:textColorHint="#FCF8F8">
 
         <EditText
-            android:id="@+id/weight"
+            android:id="@+id/logpass1"
             style="@style/Widget.AppCompat.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#ffff"
-            android:hint="   Weight"
-            android:inputType="textPersonName"
-            android:textColor="#F8F6F6"
+            android:hint="   Password"
+            android:inputType="textPassword"
+            android:textColor="#FAF7F7"
             android:textSize="20sp" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColorHint="#FCF9F9">
-
-        <EditText
-            android:id="@+id/height"
-            style="@style/Widget.AppCompat.EditText"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#ffff"
-            android:hint="   Height"
-            android:inputType="textPersonName"
-            android:textColor="#1B1A1A"
-            android:textSize="20sp" />
-    </android.support.design.widget.TextInputLayout>
-
+            android:layout_gravity="right"
+            android:layout_marginTop="16dp"
+            android:text="Forgot Password?"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
 
     <Button
-        android:id="@+id/start"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="#FDFCFD"
-        android:onClick="start"
-        android:text="START"
+        android:onClick="login"
+        android:text="Log In"
         android:textColor="#141212"
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#FCFCFC"
+        android:onClick="signup"
+        android:text="Sign Up"
+        android:textColor="#1F1D1D"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-
-</LinearLayout>
+    </LinearLayout>

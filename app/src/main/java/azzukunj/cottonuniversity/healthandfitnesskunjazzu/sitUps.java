@@ -15,6 +15,12 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.app.Activity;
 
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +34,7 @@ import azzukunj.cottonuniversity.healthandfitnesskunjazzu.converttoless.convertt
 import static android.widget.Toast.LENGTH_SHORT;
 
 
-public class sitUps extends Activity implements SensorEventListener  {
+public class sitUps extends Fragment implements SensorEventListener  {
 
     public SensorManager sensorManager;
 
@@ -52,17 +58,18 @@ public class sitUps extends Activity implements SensorEventListener  {
     SimpleDateFormat date=new SimpleDateFormat("dd");
 
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sit_ups);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_sit_ups,container,false);
 
 
-        z = (TextView) findViewById (R.id.caloriedispxml);
-        caloriedisp = (TextView) findViewById (R.id.tv_steps);
-        bar=findViewById(R.id.barxml);
 
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        z = (TextView) view.findViewById (R.id.caloriedispxml);
+        caloriedisp = (TextView) view.findViewById (R.id.tv_steps);
+        bar=view.findViewById(R.id.barxml);
+
+        sensorManager = (SensorManager) getActivity().getSystemService(getActivity().SENSOR_SERVICE);
 
         sensorManager.registerListener(this, sensorManager.getDefaultSensor
                 (Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
@@ -73,7 +80,7 @@ public class sitUps extends Activity implements SensorEventListener  {
 
 
 
-       SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
+       SharedPreferences sp=getActivity().getSharedPreferences("preferences",getActivity().MODE_PRIVATE);
         String id=sp.getString("id","Email or Password is incorrect");
         xage=sp.getString(id+"age","Email or Password is incorrect");
         xweight=sp.getString(id+"weight","Email or Password is incorrect");
@@ -81,7 +88,7 @@ public class sitUps extends Activity implements SensorEventListener  {
         try {
             age = Integer.parseInt(xage);
             weight = Integer.parseInt(xweight);
-            Toast.makeText(getApplicationContext(),"HEART RATE DEVICE NOT CONNECTED",LENGTH_SHORT).show();
+            Toast.makeText(getActivity().getApplicationContext(),"HEART RATE DEVICE NOT CONNECTED",LENGTH_SHORT).show();
         }
         catch(NumberFormatException nfe)
         {
@@ -98,7 +105,7 @@ public class sitUps extends Activity implements SensorEventListener  {
 
 
 
-
+return view;
     }
     public static int toMins(String s)
     {
@@ -148,7 +155,7 @@ public class sitUps extends Activity implements SensorEventListener  {
                     caloriedisp.setText(s);
 
 
-                    SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
+                    SharedPreferences sp=getActivity().getSharedPreferences("preferences",getActivity().MODE_PRIVATE);
 
 
                     int plot = (int)calorieburnt.doubleValue();

@@ -1,13 +1,22 @@
 package azzukunj.cottonuniversity.healthandfitnesskunjazzu;
 
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class WeekActivity extends AppCompatActivity {
 
@@ -15,11 +24,13 @@ public class WeekActivity extends AppCompatActivity {
     GraphView graphView;
     double x=0,y=0;
     TextView totalcal;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_week);
 
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_week);
 
 
 

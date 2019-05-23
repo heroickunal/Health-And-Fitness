@@ -24,7 +24,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="153dp"
-        android:text="Average Calories Burned :"
+        android:text="Total Calories Burned :"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         android:textStyle="bold" />

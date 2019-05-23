@@ -3,17 +3,12 @@ package azzukunj.cottonuniversity.healthandfitnesskunjazzu;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Message;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class MainActivity extends Activity {
@@ -26,7 +21,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        logemail=findViewById(R.id.logemail);
+        logemail=findViewById(R.id.logemail1);
         logpass=findViewById(R.id.logpass1);
         SharedPreferences sp1=getSharedPreferences("preferences",MODE_PRIVATE);
         String countdetail=sp1.getString("detailcount","1");
@@ -56,7 +51,7 @@ public class MainActivity extends Activity {
         editor.putString("id",details);                                                      //STORE THE USER INFO TO KEY welcome, AND START THE GREETING ACTIVITY
         editor.commit();
         if(details!=("Email or Password is incorrect")) {
-            Intent welcome = new Intent(MainActivity.this, Login.class);
+            Intent welcome = new Intent(MainActivity.this, Main2Activity.class);
             startActivity(welcome);
         }
         else {

@@ -2,8 +2,14 @@ package azzukunj.cottonuniversity.healthandfitnesskunjazzu;
 
 import android.content.SharedPreferences;
 import android.os.CountDownTimer;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +20,8 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class m2 extends AppCompatActivity {
 
 LineGraphSeries<DataPoint> graphSeries;
@@ -23,9 +31,10 @@ TextView totalcal;
 public int total=0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m2);
+
         graphView = findViewById(R.id.graphxml);
         totalcal = findViewById(R.id.totalcaloriesxml);
 

@@ -1,91 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Signup">
 
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="40dp"
-    android:background="@drawable/greenback">
+    <LinearLayout
+        android:orientation="vertical"
 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
 
+            android:background="@drawable/greenback"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+        <ImageView
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+    </LinearLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:src="@mipmap/healthandfitnesslogo_round" />
+        android:id="@+id/imageVIew"
 
-    <android.support.design.widget.TextInputLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="100dp"
+        android:padding="5dp"
+        android:src="@mipmap/healthandfitnesslogo_round" />
+    <LinearLayout
+        android:layout_marginTop="200dp"
+        android:id="@+id/layoutInput"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+
+        android:background="@drawable/background_white"
+        android:padding="20dp"
+        android:paddingTop="200dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textColorHint="#FCF8F8">
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="5dp"
+            android:text="Age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/age"
-            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-            android:backgroundTint="#ffff"
-            android:hint="   Age"
-            android:inputType="textPersonName"
-            android:textColor="#cccccc"
-            android:textSize="20sp" />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColorHint="#FDF9F9">
+            android:drawableRight="@drawable/ic_person"
+            android:drawablePadding="20dp"
+            android:hint="age" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:text="Weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/weight"
-            style="@style/Widget.AppCompat.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#ffff"
-            android:hint="   Weight"
-            android:inputType="textPersonName"
-            android:textColor="#F8F6F6"
-            android:textSize="20sp" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColorHint="#FCF9F9">
+            android:drawableRight="@drawable/ic_person"
+            android:drawablePadding="20dp"
+            android:hint="weight" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:text="Height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/height"
-            style="@style/Widget.AppCompat.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#ffff"
-            android:hint="   Height"
-            android:inputType="textPersonName"
-            android:textColor="#1B1A1A"
-            android:textSize="20sp" />
-    </android.support.design.widget.TextInputLayout>
+            android:drawableRight="@drawable/ic_person"
+            android:drawablePadding="20dp"
+            android:hint="height" />
 
 
-    <Button
-        android:id="@+id/start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="#FDFCFD"
-        android:onClick="start"
-        android:text="START"
-        android:textColor="#141212"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#64DD17"
+            android:onClick="start"
+            android:text="Start"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
 
-</LinearLayout>
+
+</RelativeLayout>

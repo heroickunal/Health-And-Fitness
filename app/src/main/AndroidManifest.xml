@@ -14,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
+        <activity android:name=".AfterLogin"></activity>
+        <activity android:name=".Main2Activity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".pushUps" />
-        <activity android:name=".sitUps" />
         <activity android:name=".calculator" />
         <activity android:name=".m1" />
         <activity android:name=".m2" />
@@ -34,10 +33,13 @@
         <activity android:name=".Signup" />
         <activity android:name=".UserDetails" />
         <activity android:name=".WeekActivity" />
+
         <service
             android:name=".jobintent"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-<activity android:name=".Hydration"></activity>
+
+        <activity android:name=".Hydration" />
+
         <receiver android:name=".AlarmReceiver" />
 
         <activity android:name=".NotificationActivity" />

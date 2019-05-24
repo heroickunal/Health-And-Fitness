@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_person"
             android:drawablePadding="20dp"
-            android:hint="UserEmail" />
+            android:hint="email" />
         <TextView
             android:layout_marginTop="5dp"
             android:text="Password"
@@ -70,7 +70,7 @@
             android:layout_marginTop="20dp"
             android:background="#64DD17"
             android:onClick="login"
-            android:text="Login In"
+            android:text="Login"
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:textSize="18sp"

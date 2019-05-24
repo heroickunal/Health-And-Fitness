@@ -7,7 +7,11 @@ package azzukunj.cottonuniversity.healthandfitnesskunjazzu;
 
 
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -17,11 +21,13 @@ import android.app.Activity;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,11 +36,33 @@ import java.util.Calendar;
 
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.calorie.calorie;
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.converttoless.converttoless;
+import azzukunj.cottonuniversity.healthandfitnesskunjazzu.holocircularprogressbar.HoloCircularProgressBar;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
 
-public class sitUps extends Fragment implements SensorEventListener  {
+public class sitUps extends AppCompatActivity implements SensorEventListener  {
+
+    protected boolean mAnimationHasEnded = false;
+
+    private Switch mAutoAnimateSwitch;
+
+    /**
+     * The Switch button.
+     */
+    private Button mColorSwitchButton;
+
+    private HoloCircularProgressBar mHoloCircularProgressBar;
+
+    private Button mOne;
+
+    private ObjectAnimator mProgressBarAnimator;
+
+    private Button mZero;
+
+
+
+
 
     public SensorManager sensorManager;
 
@@ -43,9 +71,10 @@ public class sitUps extends Fragment implements SensorEventListener  {
 
 
 
-  public static TextView z,caloriedisp;
+    public static TextView z,caloriedisp;
     public int reps=5;
     public int i=0,countdown=0,totalcal;
+    public float progress=0;
     public int c=0,get;
     Double calorieburnt=0.0;
     static int age,weight;
@@ -58,18 +87,18 @@ public class sitUps extends Fragment implements SensorEventListener  {
     SimpleDateFormat date=new SimpleDateFormat("dd");
 
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_sit_ups,container,false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sit_ups);
 
 
 
-        z = (TextView) view.findViewById (R.id.caloriedispxml);
-        caloriedisp = (TextView) view.findViewById (R.id.tv_steps);
-        bar=view.findViewById(R.id.barxml);
+        z = (TextView) findViewById (R.id.caloriedispxml);
+        caloriedisp = (TextView) findViewById (R.id.tv_steps);
+        bar=findViewById(R.id.barxml);
 
-        sensorManager = (SensorManager) getActivity().getSystemService(getActivity().SENSOR_SERVICE);
+        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
 
         sensorManager.registerListener(this, sensorManager.getDefaultSensor
                 (Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
@@ -80,7 +109,7 @@ public class sitUps extends Fragment implements SensorEventListener  {
 
 
 
-       SharedPreferences sp=getActivity().getSharedPreferences("preferences",getActivity().MODE_PRIVATE);
+        SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
         String id=sp.getString("id","Email or Password is incorrect");
         xage=sp.getString(id+"age","Email or Password is incorrect");
         xweight=sp.getString(id+"weight","Email or Password is incorrect");
@@ -88,7 +117,7 @@ public class sitUps extends Fragment implements SensorEventListener  {
         try {
             age = Integer.parseInt(xage);
             weight = Integer.parseInt(xweight);
-            Toast.makeText(getActivity().getApplicationContext(),"HEART RATE DEVICE NOT CONNECTED",LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"HEART RATE DEVICE NOT CONNECTED",LENGTH_SHORT).show();
         }
         catch(NumberFormatException nfe)
         {
@@ -98,14 +127,29 @@ public class sitUps extends Fragment implements SensorEventListener  {
 
 
 
-         time=format.format(calendar.getTime());
-         dd=date.format(calendar.getTime());
+        time=format.format(calendar.getTime());
+        dd=date.format(calendar.getTime());
 
-         get=toMins(time);
+        get=toMins(time);
 
 
 
-return view;
+
+        mHoloCircularProgressBar = (HoloCircularProgressBar) findViewById(
+                R.id.holoCircularProgressBar);
+
+        {
+
+            mHoloCircularProgressBar.setProgressColor(Color.GREEN);
+
+            //randomColor = Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256));
+            mHoloCircularProgressBar.setProgressBackgroundColor(Color.WHITE);
+            animate(mHoloCircularProgressBar, null, 0, 1000);
+
+        }
+
+
+
     }
     public static int toMins(String s)
     {
@@ -154,8 +198,16 @@ return view;
                     s=converttoless.convert(calorieburnt);
                     caloriedisp.setText(s);
 
+                    if (mProgressBarAnimator != null) {
+                        mProgressBarAnimator.cancel();
+                    }
+                    float j=i;
+                    progress=j/20;
+                    float putprogress=progress;
+                    animate(mHoloCircularProgressBar, null, putprogress, 1000);
+                    mHoloCircularProgressBar.setMarkerProgress(putprogress);
 
-                    SharedPreferences sp=getActivity().getSharedPreferences("preferences",getActivity().MODE_PRIVATE);
+                    SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
 
 
                     int plot = (int)calorieburnt.doubleValue();
@@ -191,7 +243,7 @@ return view;
 
 
                     c = 0;
-        }
+                }
             }
             if(reps<6&&c<1)
             {
@@ -199,5 +251,52 @@ return view;
             }
         }
     }
+    private void animate(final HoloCircularProgressBar progressBar,
+                         final Animator.AnimatorListener listener) {
+        final float progress = (float) (Math.random() * 2);
+        int duration = 3000;
+        animate(progressBar, listener, progress, duration);
+    }
+
+    private void animate(final HoloCircularProgressBar progressBar, final Animator.AnimatorListener listener,
+                         final float progress, final int duration) {
+
+        mProgressBarAnimator = ObjectAnimator.ofFloat(progressBar, "progress", progress);
+        mProgressBarAnimator.setDuration(duration);
+
+        mProgressBarAnimator.addListener(new Animator.AnimatorListener() {
+
+            @Override
+            public void onAnimationCancel(final Animator animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(final Animator animation) {
+                progressBar.setProgress(progress);
+            }
+
+            @Override
+            public void onAnimationRepeat(final Animator animation) {
+            }
+
+            @Override
+            public void onAnimationStart(final Animator animation) {
+            }
+        });
+        if (listener != null) {
+            mProgressBarAnimator.addListener(listener);
+        }
+        mProgressBarAnimator.reverse();
+        mProgressBarAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(final ValueAnimator animation) {
+                progressBar.setProgress((Float) animation.getAnimatedValue());
+            }
+        });
+        progressBar.setMarkerProgress(progress);
+        mProgressBarAnimator.start();
+    }
 
 }
+

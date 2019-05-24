@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Pedometer"
@@ -8,27 +8,52 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-<LinearLayout
-    android:paddingTop="120dp"
-    android:paddingLeft="40dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-
-   <ImageView
-       android:layout_width="100dp"
-       android:layout_height="70dp"
-       android:src="@drawable/situpsicon"
-       />
-
-</LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        >
+        <azzukunj.cottonuniversity.healthandfitnesskunjazzu.holocircularprogressbar.HoloCircularProgressBar
+            android:id="@+id/holoCircularProgressBar"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            />
+
+
+
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="118dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/situpsicon"
+        />
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
         <TextView
 
-            android:paddingLeft="72dp"
-            android:paddingTop="5dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="20dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="SitUps :"
+            android:textSize="30sp"
+            android:textStyle="bold"
+
+            />
+        <TextView
+
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
             android:id="@+id/caloriedispxml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,12 +63,31 @@
             android:textStyle="bold"
 
             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:paddingLeft="30dp"
+            android:paddingTop="20dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Calorie:"
+            android:textSize="30sp"
+            android:textStyle="bold"
+
+            />
         <TextView
             android:id="@+id/tv_steps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingLeft="150dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
 
             android:textSize="30sp"
             android:textStyle="bold" />

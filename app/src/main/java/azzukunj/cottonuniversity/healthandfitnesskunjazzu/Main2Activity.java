@@ -30,7 +30,7 @@ public class Main2Activity extends AppCompatActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Fragment(), "TAB1");
         adapter.addFragment(new Tab2Fragment(), "TAB2");
-        adapter.addFragment(new sitUps(), "Situps");
+        adapter.addFragment(new Tab3Fragment(), "EXCERCISES");
         viewPager.setAdapter(adapter);
     }
 

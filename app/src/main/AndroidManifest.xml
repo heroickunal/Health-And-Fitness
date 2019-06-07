@@ -2,12 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="azzukunj.cottonuniversity.healthandfitnesskunjazzu">
+
+    <uses-sdk tools:ignore="GradleOverrides" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-sdk tools:ignore="GradleOverrides" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,8 +20,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AfterLogin"></activity>
-        <activity android:name=".Main2Activity"/>
+        <activity android:name=".HeartRate" />
+        <activity android:name=".AfterLogin" />
+        <activity android:name=".Main2Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".pushUps" />
         <activity android:name=".calculator" />
         <activity android:name=".m2" />
@@ -34,13 +38,18 @@
         <activity android:name=".Welcome" />
         <activity android:name=".Signup" />
         <activity android:name=".UserDetails" />
-        <activity android:name=".sitUps"/>
+        <activity android:name=".sitUps" />
         <activity android:name=".WeekActivity" />
-        <activity android:name=".CircularProgressBarSample"/>
+        <activity android:name=".CircularProgressBarSample" />
 
         <service
             android:name=".jobintent"
             android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <service
+            android:name=".MqttMessageService"
+            android:enabled="true"
+            android:exported="false" />
 
         <activity android:name=".Hydration" />
 

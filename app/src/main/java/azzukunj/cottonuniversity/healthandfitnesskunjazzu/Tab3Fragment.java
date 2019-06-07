@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-/**
- * Created by User on 2/28/2017.
- */
+
 
 public class Tab3Fragment extends Fragment {
     private static final String TAG = "Tab3Fragment";
@@ -28,7 +26,7 @@ public class Tab3Fragment extends Fragment {
         btnTEST.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity().getApplication(),sitUps.class);
+                Intent intent=new Intent(getActivity().getApplication(),HeartRate.class);
                 startActivity(intent);
             }
         });

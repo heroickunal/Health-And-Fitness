@@ -10,6 +10,7 @@ package azzukunj.cottonuniversity.healthandfitnesskunjazzu;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
@@ -45,20 +46,18 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
 
     protected boolean mAnimationHasEnded = false;
 
-    private Switch mAutoAnimateSwitch;
 
-    /**
-     * The Switch button.
-     */
-    private Button mColorSwitchButton;
+
+
+    private Button HeartRate;
 
     private HoloCircularProgressBar mHoloCircularProgressBar;
 
-    private Button mOne;
+
 
     private ObjectAnimator mProgressBarAnimator;
 
-    private Button mZero;
+
 
 
 
@@ -93,46 +92,35 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
         setContentView(R.layout.activity_sit_ups);
 
 
+        HeartRate = findViewById(R.id.HeartRate);
+        z = (TextView) findViewById(R.id.caloriedispxml);
+        caloriedisp = (TextView) findViewById(R.id.tv_steps);
+        bar = findViewById(R.id.barxml);
 
-        z = (TextView) findViewById (R.id.caloriedispxml);
-        caloriedisp = (TextView) findViewById (R.id.tv_steps);
-        bar=findViewById(R.id.barxml);
-
-        sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
         sensorManager.registerListener(this, sensorManager.getDefaultSensor
                 (Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
 
 
-
-
-
-
-
-        SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
-        String id=sp.getString("id","Email or Password is incorrect");
-        xage=sp.getString(id+"age","Email or Password is incorrect");
-        xweight=sp.getString(id+"weight","Email or Password is incorrect");
+        SharedPreferences sp = getSharedPreferences("preferences", MODE_PRIVATE);
+        String id = sp.getString("id", "Email or Password is incorrect");
+        xage = sp.getString(id + "age", "Email or Password is incorrect");
+        xweight = sp.getString(id + "weight", "Email or Password is incorrect");
 
         try {
             age = Integer.parseInt(xage);
             weight = Integer.parseInt(xweight);
-            Toast.makeText(getApplicationContext(),"HEART RATE DEVICE NOT CONNECTED",LENGTH_SHORT).show();
-        }
-        catch(NumberFormatException nfe)
-        {
+            Toast.makeText(getApplicationContext(), "HEART RATE DEVICE NOT CONNECTED", LENGTH_SHORT).show();
+        } catch (NumberFormatException nfe) {
             System.out.print("wwwwrrroooonngggggggg");
         }
 
 
+        time = format.format(calendar.getTime());
+        dd = date.format(calendar.getTime());
 
-
-        time=format.format(calendar.getTime());
-        dd=date.format(calendar.getTime());
-
-        get=toMins(time);
-
-
+        get = toMins(time);
 
 
         mHoloCircularProgressBar = (HoloCircularProgressBar) findViewById(
@@ -149,9 +137,15 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
         }
 
 
+        HeartRate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent I = new Intent(sitUps.this, HeartRate.class);
+                startActivity(I);
+            }
+        });
 
-    }
-    public static int toMins(String s)
+    }  public static int toMins(String s)
     {
         String[] hourmin=s.split(":");
         int hour=Integer.parseInt(hourmin[0]);
@@ -296,6 +290,10 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
         });
         progressBar.setMarkerProgress(progress);
         mProgressBarAnimator.start();
+    }
+    public void HeartRate(View view)
+    {
+
     }
 
 }

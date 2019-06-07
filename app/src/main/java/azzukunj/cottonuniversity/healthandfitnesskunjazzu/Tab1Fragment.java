@@ -16,9 +16,7 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 
-/**
- * Created by User on 2/28/2017.
- */
+
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.holocircularprogressbar.HoloCircularProgressBar;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -28,9 +26,7 @@ public class Tab1Fragment extends Fragment {
 
     private Switch mAutoAnimateSwitch;
 
-    /**
-     * The Switch button.
-     */
+
     private Button mColorSwitchButton;
 
     private HoloCircularProgressBar mHoloCircularProgressBar;

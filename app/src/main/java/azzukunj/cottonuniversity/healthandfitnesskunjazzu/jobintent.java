@@ -14,7 +14,6 @@ import android.util.Log;
 import java.util.Calendar;
 
 public class jobintent extends JobIntentService {
-    private static final String TAG = "ExampleJobIntentService";
 
     static void enqueueWork(Context context, Intent work) {
         enqueueWork(context, jobintent.class, 123, work);

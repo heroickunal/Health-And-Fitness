@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
         }
 
     }
-   public void signup(View v)         //ON CLICKING BUTTON SIGNUP, START SIGNUP ACTIVITY
+   public void signup(View v)
     {
 
             Intent signup = new Intent(MainActivity.this, Signup.class);
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
 
     }
 
-    public void login(View v)           //LOGIN BUTTON
+    public void login(View v)
     {
         String email=logemail.getText().toString();
         String pass=logpass.getText().toString();

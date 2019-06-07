@@ -23,7 +23,6 @@ import android.widget.TextView;
 
 public class AfterLogin extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
 
     private swipetabsections mSectionsPageAdapter;
 
@@ -33,7 +32,6 @@ public class AfterLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "onCreate: Starting.");
 
         mSectionsPageAdapter = new swipetabsections(getSupportFragmentManager());
 

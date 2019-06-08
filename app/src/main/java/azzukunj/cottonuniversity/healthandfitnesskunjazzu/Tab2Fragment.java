@@ -56,8 +56,9 @@ public class Tab2Fragment extends Fragment {
 
         String addornot=sp.getString("add or not","0");
         if(Integer.parseInt(addornot)==1) {
-            String tc=sp.getString("r","0");
-            String tx=sp.getString("totalcal","0");
+            String id=sp.getString("id","ppppppppppppp");
+            String tc=sp.getString(id+"r","0");
+            String tx=sp.getString(id+"totalcal","0");
             //totalcal.setText(tc);
 
             int x=Integer.parseInt(tc);
@@ -67,14 +68,16 @@ public class Tab2Fragment extends Fragment {
 
             SharedPreferences.Editor editor = sp.edit();
 
-            editor.putString("totalcal", Integer.toString(total));
+            editor.putString(id+"totalcal", Integer.toString(total));
             editor.apply();
             totalcal.setText(Integer.toString(total));
             editor.putString("add or not","0");
             editor.apply();
         }
         else {
-            String tx = sp.getString("totalcal", "0");
+            String id=sp.getString("id","ppppppppppppp");
+
+            String tx = sp.getString(id+"totalcal", "0");
 
             totalcal.setText((tx));
 

@@ -71,15 +71,18 @@ public class WeekActivity extends AppCompatActivity {
             int total = x + y;
 
             SharedPreferences.Editor editor = sp.edit();
+            String id=sp.getString("id","ppppppppppppp");
 
-            editor.putString("totalcal", Integer.toString(total));
+            editor.putString(id+"totalcal", Integer.toString(total));
             editor.apply();
             totalcal.setText(Integer.toString(total));
             editor.putString("add or not","0");
             editor.apply();
         }
         else {
-            String tx = sp.getString("totalcal", "0");
+            String id=sp.getString("id","ppppppppppppp");
+
+            String tx = sp.getString(id+"totalcal", "0");
 
             totalcal.setText((tx));
 

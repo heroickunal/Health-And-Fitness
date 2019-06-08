@@ -89,9 +89,10 @@ public class Tab1Fragment extends Fragment {
         }
 
         SharedPreferences sp=getActivity().getSharedPreferences("preferences",MODE_PRIVATE);
+        String id=sp.getString("id","ppppppppppppp");
 
-        String tc=sp.getString("r","0");
-        String tx=sp.getString("totalcal","0");
+        String tc=sp.getString(id+"r","0");
+        String tx=sp.getString(id+"totalcal","0");
         //totalcal.setText(tc);
 
         int x=Integer.parseInt(tc);

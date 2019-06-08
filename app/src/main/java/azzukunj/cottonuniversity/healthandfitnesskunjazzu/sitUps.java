@@ -223,23 +223,24 @@ private static int startstop=0;
 
                         SharedPreferences sp = getSharedPreferences("preferences", MODE_PRIVATE);
 
+                        String id=sp.getString("id","ppppppppppppp");
 
                         int plot = (int) calorieburnt.doubleValue();
                         SharedPreferences.Editor editor = sp.edit();
                         String getx = Integer.toString(get);
-                        editor.putString(getx + "day", Integer.toString(plot));
+                        editor.putString(id+getx + "day", Integer.toString(plot));
                         editor.apply();
 
 
-                        editor.putString(dd + "week", Integer.toString(plot));
+                        editor.putString(id+dd + "week", Integer.toString(plot));
                         editor.apply();
 
 
-                        editor.putString("r", Integer.toString(plot));
+                        editor.putString(id+"r", Integer.toString(plot));
                         editor.apply();
 
 
-                        editor.putString("add or not", Integer.toString(1));
+                        editor.putString(id+"add or not", Integer.toString(1));
                         editor.apply();
 
                     /*String t=sp.getString("totalcal","0");

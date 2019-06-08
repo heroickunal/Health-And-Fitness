@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 public class UserDetails extends AppCompatActivity{
     private Button start;
-    public EditText agex,weightx;
+    public EditText agex,weightx,heightx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class UserDetails extends AppCompatActivity{
         setContentView(R.layout.activity_user_details);
         agex=findViewById(R.id.age);
         weightx=findViewById(R.id.weight);
+        heightx=findViewById(R.id.height);
 
 
 
@@ -30,11 +31,14 @@ public class UserDetails extends AppCompatActivity{
         SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
         String age=agex.getText().toString();
         String weight=weightx.getText().toString();
+        String height=heightx.getText().toString();
         SharedPreferences.Editor edit=sp.edit();
         String id=sp.getString("id","Email or Password is incorrect");
         edit.putString(id+"age",age);//STORE THE USER INFO
         edit.putString(id+"weight",weight);
-        edit.commit();
+        edit.putString(id+"height",height);
+
+        edit.apply();
         Intent signedup=new Intent(UserDetails.this,MainActivity.class);
         startActivity(signedup);
 

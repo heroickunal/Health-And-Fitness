@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -46,11 +47,16 @@ public class MainActivity extends Activity {
         String email=logemail.getText().toString();
         String pass=logpass.getText().toString();
         SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
+        String id=sp.getString("id","ppppppppppppp");
+
         String details=sp.getString(email+pass,"Email or Password is incorrect");   //IF THE ID AND PASSWORD IS CORRECT, WELCOME THE USER
-        SharedPreferences.Editor editor=sp.edit();
-        editor.putString("id",details);                                                      //STORE THE USER INFO TO KEY welcome, AND START THE GREETING ACTIVITY
-        editor.commit();
+
         if(details!=("Email or Password is incorrect")) {
+            details=sp.getString(email+pass,"Email or Password is incorrect");   //IF THE ID AND PASSWORD IS CORRECT, WELCOME THE USER
+
+            SharedPreferences.Editor editor=sp.edit();
+            editor.putString("id",details);                                                      //STORE THE USER INFO TO KEY welcome, AND START THE GREETING ACTIVITY
+            editor.apply();
             Intent welcome = new Intent(MainActivity.this, Main2Activity.class);
             startActivity(welcome);
         }
@@ -59,7 +65,23 @@ public class MainActivity extends Activity {
                   Toast.makeText(getApplicationContext(),"Email or Password wrong",LENGTH_SHORT).show();
         }
 
-    }}
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if ( keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            onBackPressed();
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+    @Override
+    public void onBackPressed() {
+
+        return;
+    }
+}
 
 
 

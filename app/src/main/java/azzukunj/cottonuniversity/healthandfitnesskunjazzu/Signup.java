@@ -32,15 +32,22 @@ public class Signup extends AppCompatActivity {
         String newemail=upemail.getText().toString();
         String newpass=uppass.getText().toString();
         SharedPreferences.Editor edit=sp.edit();
-        edit.putString(newemail+newpass,"Name = "+newname+"\n\n"+"Email = "+newemail);  //STORE THE USER INFO
-        edit.commit();
+
+        edit.putString(newemail+newpass,newname+newemail);  //STORE THE USER INFO
+        String id=newemail+newpass;
+
+        SharedPreferences.Editor editor=sp.edit();
+
+        edit.putString(id+"email",newemail);  //STORE THE USER INFO
+        edit.putString(id+"name",newname);
+
+        edit.apply();
 
 
 
         String details=sp.getString(newemail+newpass,"Email or Password is incorrect");   //IF THE ID AND PASSWORD IS CORRECT, WELCOME THE USER
-        SharedPreferences.Editor editor=sp.edit();
         editor.putString("id",details);                                                      //STORE THE USER INFO TO KEY welcome, AND START THE GREETING ACTIVITY
-        editor.commit();
+        editor.apply();
 
 
 

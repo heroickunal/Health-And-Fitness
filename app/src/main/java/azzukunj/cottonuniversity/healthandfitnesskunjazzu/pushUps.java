@@ -181,11 +181,13 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
                     int plot = (int) calorieburnt.doubleValue();
                     SharedPreferences.Editor editor = sp.edit();
                     String getx = Integer.toString(get);
-                    editor.putString(getx + "day", Integer.toString(plot));
+                    String id=sp.getString("id","ppppppppppppp");
+
+                    editor.putString(id+getx + "day", Integer.toString(plot));
                     editor.apply();
 
 
-                    editor.putString(dd + "week", Integer.toString(plot));
+                    editor.putString(id+dd + "week", Integer.toString(plot));
                     editor.apply();
 /*
                 String t=sp.getString("totalcal","0");
@@ -196,7 +198,7 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
 */
 
 
-                    editor.putString("r", Integer.toString(plot));
+                    editor.putString(id+"r", Integer.toString(plot));
                     editor.apply();
 
 

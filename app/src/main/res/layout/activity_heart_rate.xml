@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HeartRate">
+    tools:context=".HeartRate"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,8 +15,9 @@
             android:id="@+id/holoCircularProgressBar2"
             android:layout_width="250dp"
             android:layout_height="250dp"
+            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="170dp"
             />
 
 
@@ -27,49 +29,74 @@
             android:layout_height="70dp"
             android:layout_marginTop="118dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/situpsicon"
+            android:src="@drawable/heart"
             />
+        <ImageView
+           android:background="@drawable/nobackground"
+            android:layout_width="400dp"
+            android:layout_marginTop="210dp"
+            android:layout_height="200dp" />
     </RelativeLayout>
     <Button
         android:id="@+id/subscribe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="" />
 
-    <LinearLayout
-        android:layout_width="0px"
-        android:layout_height="0px"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
-
-        <requestFocus />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/msg"
-        android:layout_width="374dp"
-        android:layout_height="520dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <ScrollView
-            android:id="@+id/SCROLLER_ID"
-            android:layout_width="374dp"
-            android:layout_height="520dp"
-            android:fillViewport="true"
-            android:scrollbars="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="STATUS = "
+            android:textColor="#00C853"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/subscribedMsg"
-                android:layout_width="374dp"
-                android:layout_height="520dp"
-                android:layout_weight="1.0"
-                android:gravity="bottom" />
-        </ScrollView>
+        <TextView
+            android:id="@+id/subscribedMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:textColor="#00C853"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="BPM = "
+            android:textColor="#00C853"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="bpm"
+            android:textColor="#00C853"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

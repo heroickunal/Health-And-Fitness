@@ -49,12 +49,13 @@ public class HeartRate extends AppCompatActivity {
 
     private ObjectAnimator mProgressBarAnimator;
 
-    TextView tvMessage;
+    TextView tvMessage,bpm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heart_rate);
         subscribe=findViewById(R.id.subscribe);
+        bpm=findViewById(R.id.bpm);
 
         mHoloCircularProgressBar2 = (HoloCircularProgressBar2) findViewById(
                 R.id.holoCircularProgressBar2);
@@ -213,17 +214,21 @@ public class HeartRate extends AppCompatActivity {
                 else if(topic.equals("mycustomtopic2")) {
                 }
                 else {
-                    String msg = "topic: " + topic + "\r\nMessage: " + message.toString() + "\r\n";
-                    tvMessage.setText( msg);
+                    String msg = "Heart Rate Connected";
+                    tvMessage.setText(msg);
                     String bar=message.toString();
                     if(bar.equals("65"))
                     {
                     Random random=new Random();
-                    int r=random.nextInt(75-60+1)+60;
-                    float f=(float)r/100;
+                    int r=Math.abs(random.nextInt())%11;
+                    int temp=r;
+                    float f=(float)r/100+0.2f;
 
                     animate(mHoloCircularProgressBar2, null, f, 3000);
                     mHoloCircularProgressBar2.setMarkerProgress(f);
+                    r=temp+60;
+                    String s=Integer.toString(r);
+                    bpm.setText(s);
                 }}
             }
 

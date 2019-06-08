@@ -61,7 +61,7 @@ private Handler mhandler=new Handler();
         editor.apply();
 
         String statushydration=sp.getString("statushydration","000");
-        textView.setText(statushydration);
+        textView.setText("STATUS "+statushydration);
 mhandler.removeCallbacks(mToastRunnable);
     }
 
@@ -90,7 +90,7 @@ mhandler.removeCallbacks(mToastRunnable);
                     editor.putString("hydration", "1");
                     editor.apply();
                     String statushydration = sp.getString("statushydration", "OFF");
-                    textView.setText(statushydration);
+                    textView.setText("STATUS "+statushydration);
 
 
                     Intent notificationIntent = new Intent(Hydration.this, AlarmReceiver.class);

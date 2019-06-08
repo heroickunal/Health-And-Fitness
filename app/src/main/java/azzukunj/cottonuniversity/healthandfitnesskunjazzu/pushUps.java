@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
@@ -12,6 +13,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +51,7 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
     Double calorieburnt=0.0;
     String s,xage,xweight,time,dd;
     int age,weight,get;
+    private Button HeartRate;
 
     Calendar calendar=Calendar.getInstance();
     SimpleDateFormat format=new SimpleDateFormat("HH:mm");
@@ -57,6 +61,7 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_push_ups);
+        HeartRate = findViewById(R.id.HeartRate);
 
         mHoloCircularProgressBar = (HoloCircularProgressBar) findViewById(
                 R.id.holoCircularProgressBar);
@@ -98,7 +103,13 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
 
         get=toMins(time);
 
-
+        HeartRate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent I = new Intent(pushUps.this, HeartRate.class);
+                startActivity(I);
+            }
+        });
     }
     public static int toMins(String s)
     {

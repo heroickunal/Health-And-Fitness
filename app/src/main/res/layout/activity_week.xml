@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WeekActivity"
-    android:background="@drawable/back">
+    >
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/weekgraphxml"
@@ -25,7 +25,7 @@
         android:layout_marginLeft="0dp"
         android:layout_marginBottom="153dp"
         android:text="Total Calories Burned :"
-        android:textColor="@android:color/background_dark"
+        android:textColor="#00C853"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -39,7 +39,6 @@
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginBottom="86dp"
-        android:text="Average Heart Rate :"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -54,7 +53,6 @@
         android:layout_marginEnd="7dp"
         android:layout_marginRight="7dp"
         android:layout_marginBottom="1dp"
-        android:text="workhard"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -69,7 +67,6 @@
         android:layout_marginEnd="59dp"
         android:layout_marginRight="59dp"
         android:layout_marginBottom="-72dp"
-        android:text="HR"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         android:textStyle="bold" />

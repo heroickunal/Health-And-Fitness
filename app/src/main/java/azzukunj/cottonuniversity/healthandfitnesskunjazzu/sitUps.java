@@ -79,7 +79,7 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
     static int age,weight;
 
     static String xage,xweight,s,time,dd;
-    ProgressBar bar;
+
 
     Calendar calendar=Calendar.getInstance();
     SimpleDateFormat format=new SimpleDateFormat("HH:mm");
@@ -95,7 +95,6 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
         HeartRate = findViewById(R.id.HeartRate);
         z = (TextView) findViewById(R.id.caloriedispxml);
         caloriedisp = (TextView) findViewById(R.id.tv_steps);
-        bar = findViewById(R.id.barxml);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 

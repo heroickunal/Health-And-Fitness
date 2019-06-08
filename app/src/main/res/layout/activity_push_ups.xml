@@ -30,7 +30,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="118dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/situpsicon"
+            android:src="@drawable/pushupsicon2"
             />
     </RelativeLayout>
     <LinearLayout
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="SitUps :"
+            android:text="PushUps :"
             android:textSize="30sp"
             android:textStyle="bold"
 

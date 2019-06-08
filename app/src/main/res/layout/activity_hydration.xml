@@ -1,44 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Hydration"
-    android:background="@drawable/back">
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical">
+    <ImageView
+
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="90dp"
+        android:layout_marginLeft="95dp"
+        android:src="@drawable/glass"
+        />
 
     <Button
         android:id="@+id/on"
-        android:layout_width="wrap_content"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="183dp"
-        android:layout_marginBottom="54dp"
+
+        android:background="#64DD17"
         android:onClick="on"
         android:text="Hydration Timer On"
-        app:layout_constraintBottom_toTopOf="@+id/off"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="#FAFFFFFF"
+        android:textSize="24sp"
+
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/off"
-        android:layout_width="wrap_content"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
+        android:layout_marginTop="10dp"
+        android:background="#64DD17"
         android:onClick="off"
         android:text="Hydration Timer Off"
-        app:layout_constraintBottom_toTopOf="@+id/onoff"
-        app:layout_constraintStart_toStartOf="@+id/on"
-        app:layout_constraintTop_toBottomOf="@+id/on" />
+        android:textColor="#FAFFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/onoff"
-        android:layout_width="115dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="60dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="250dp"
+        android:text="Status"
+        android:textColor="#00C853"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/off" />
-</android.support.constraint.ConstraintLayout>
+       />
+</LinearLayout>
+</RelativeLayout>

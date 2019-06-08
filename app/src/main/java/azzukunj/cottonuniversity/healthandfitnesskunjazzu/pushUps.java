@@ -1,7 +1,11 @@
 package azzukunj.cottonuniversity.healthandfitnesskunjazzu;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -16,12 +20,23 @@ import java.util.Calendar;
 
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.calorie.calorie;
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.converttoless.converttoless;
+import azzukunj.cottonuniversity.healthandfitnesskunjazzu.holocircularprogressbar.HoloCircularProgressBar;
 
 
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class pushUps extends AppCompatActivity implements SensorEventListener {
     calorie CALORIE=new calorie();
+
+
+    private HoloCircularProgressBar mHoloCircularProgressBar;
+
+
+
+    private ObjectAnimator mProgressBarAnimator;
+
+    public float progress=0;
+
     private SensorManager mSensorManager;
     private Sensor mProximity;
     private static final int SENSOR_SENSITIVITY = 4;
@@ -43,7 +58,18 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_push_ups);
 
+        mHoloCircularProgressBar = (HoloCircularProgressBar) findViewById(
+                R.id.holoCircularProgressBar);
 
+        {
+
+            mHoloCircularProgressBar.setProgressColor(Color.GREEN);
+
+            //randomColor = Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256));
+            mHoloCircularProgressBar.setProgressBackgroundColor(Color.WHITE);
+            animate(mHoloCircularProgressBar, null, 0, 1000);
+
+        }
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
@@ -142,7 +168,14 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
 
                 editor.putString("add or not",Integer.toString(1));
                 editor.apply();
-
+                if (mProgressBarAnimator != null) {
+                    mProgressBarAnimator.cancel();
+                }
+                float j=i;
+                progress=j/20;
+                float putprogress=progress;
+                animate(mHoloCircularProgressBar, null, putprogress, 1000);
+                mHoloCircularProgressBar.setMarkerProgress(putprogress);
             } else {
                 //far
                 Toast.makeText(getApplicationContext(), "far", Toast.LENGTH_SHORT).show();
@@ -155,6 +188,51 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
+    private void animate(final HoloCircularProgressBar progressBar,
+                         final Animator.AnimatorListener listener) {
+        final float progress = (float) (Math.random() * 2);
+        int duration = 3000;
+        animate(progressBar, listener, progress, duration);
+    }
 
+    private void animate(final HoloCircularProgressBar progressBar, final Animator.AnimatorListener listener,
+                         final float progress, final int duration) {
+
+        mProgressBarAnimator = ObjectAnimator.ofFloat(progressBar, "progress", progress);
+        mProgressBarAnimator.setDuration(duration);
+
+        mProgressBarAnimator.addListener(new Animator.AnimatorListener() {
+
+            @Override
+            public void onAnimationCancel(final Animator animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(final Animator animation) {
+                progressBar.setProgress(progress);
+            }
+
+            @Override
+            public void onAnimationRepeat(final Animator animation) {
+            }
+
+            @Override
+            public void onAnimationStart(final Animator animation) {
+            }
+        });
+        if (listener != null) {
+            mProgressBarAnimator.addListener(listener);
+        }
+        mProgressBarAnimator.reverse();
+        mProgressBarAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(final ValueAnimator animation) {
+                progressBar.setProgress((Float) animation.getAnimatedValue());
+            }
+        });
+        progressBar.setMarkerProgress(progress);
+        mProgressBarAnimator.start();
+    }
 }
 

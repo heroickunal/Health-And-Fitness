@@ -1,8 +1,7 @@
-package azzukunj.cottonuniversity.healthandfitnesskunjazzu.holocircularprogressbar;
+package azzukunj.cottonuniversity.healthandfitnesskunjazzu.converttoless;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -18,8 +17,6 @@ import android.view.View;
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.R;
 
 
-
-
 /**
  * HoloCircularProgressBar custom view.
  *
@@ -30,12 +27,12 @@ import azzukunj.cottonuniversity.healthandfitnesskunjazzu.R;
  * @since 05.03.2013
  */
 
-public class HoloCircularProgressBar extends View {
+public class HoloCircularProgressBar2 extends View {
 
     /**
      * TAG constant for logging
      */
-    private static final String TAG = HoloCircularProgressBar.class.getSimpleName();
+    private static final String TAG = HoloCircularProgressBar2.class.getSimpleName();
 
     /**
      * used to save the super state on configuration change
@@ -211,7 +208,7 @@ public class HoloCircularProgressBar extends View {
      *
      * @param context the context
      */
-    public HoloCircularProgressBar(final Context context) {
+    public HoloCircularProgressBar2(final Context context) {
         this(context, null);
     }
 
@@ -221,7 +218,7 @@ public class HoloCircularProgressBar extends View {
      * @param context the context
      * @param attrs   the attrs
      */
-    public HoloCircularProgressBar(final Context context, final AttributeSet attrs) {
+    public HoloCircularProgressBar2(final Context context, final AttributeSet attrs) {
         this(context, attrs, R.attr.circularProgressBarStyle);
 
 
@@ -235,8 +232,8 @@ public class HoloCircularProgressBar extends View {
      * @param attrs    the attrs
      * @param defStyle the def style
      */
-    public HoloCircularProgressBar(final Context context, final AttributeSet attrs,
-                                   final int defStyle) {
+    public HoloCircularProgressBar2(final Context context, final AttributeSet attrs,
+                                    final int defStyle) {
         super(context, attrs, defStyle);
 
         // load the styled attributes and set their properties
@@ -301,12 +298,12 @@ public class HoloCircularProgressBar extends View {
 
         // draw the background
         if (!mOverrdraw) {
-            canvas.drawArc(mCircleBounds, 270, -(360 - progressRotation), false,
+            canvas.drawArc(mCircleBounds, 180, -(360 - progressRotation), false,
                     mBackgroundColorPaint);
         }
 
         // draw the progress or a full circle if overdraw is true
-        canvas.drawArc(mCircleBounds, 270, mOverrdraw ? 360 : progressRotation, false,
+        canvas.drawArc(mCircleBounds, 180, mOverrdraw ? 360 : progressRotation, false,
                 mProgressColorPaint);
 
         // draw the marker at the correct rotated position

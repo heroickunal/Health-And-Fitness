@@ -24,11 +24,12 @@ public class Main2Activity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1Fragment(), "TAB1");
+        adapter.addFragment(new Tab1Fragment(), "EXCERCISES");
         adapter.addFragment(new Tab2Fragment(), "TAB2");
         adapter.addFragment(new Tab3Fragment(), "EXCERCISES");
         viewPager.setAdapter(adapter);

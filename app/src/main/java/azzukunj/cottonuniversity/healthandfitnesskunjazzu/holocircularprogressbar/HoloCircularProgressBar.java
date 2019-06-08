@@ -2,6 +2,7 @@ package azzukunj.cottonuniversity.healthandfitnesskunjazzu.holocircularprogressb
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -17,6 +18,8 @@ import android.view.View;
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.R;
 
 
+
+
 /**
  * HoloCircularProgressBar custom view.
  *
@@ -26,6 +29,7 @@ import azzukunj.cottonuniversity.healthandfitnesskunjazzu.R;
  * @version 1.3 (03.10.2014)
  * @since 05.03.2013
  */
+
 public class HoloCircularProgressBar extends View {
 
     /**
@@ -219,6 +223,9 @@ public class HoloCircularProgressBar extends View {
      */
     public HoloCircularProgressBar(final Context context, final AttributeSet attrs) {
         this(context, attrs, R.attr.circularProgressBarStyle);
+
+
+
     }
 
     /**
@@ -286,6 +293,11 @@ public class HoloCircularProgressBar extends View {
         canvas.translate(mTranslationOffsetX, mTranslationOffsetY);
 
         final float progressRotation = getCurrentRotation();
+
+
+
+
+
 
         // draw the background
         if (!mOverrdraw) {

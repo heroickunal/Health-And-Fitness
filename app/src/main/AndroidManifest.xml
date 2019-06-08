@@ -20,6 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".HR"></activity>
         <activity android:name=".HeartRate" />
         <activity android:name=".AfterLogin" />
         <activity android:name=".Main2Activity" />

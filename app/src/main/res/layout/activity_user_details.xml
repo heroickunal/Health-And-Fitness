@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Signup">
+    tools:context=".">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,10 +17,7 @@
             android:layout_weight="3"
             android:layout_width="match_parent"
             android:layout_height="0dp" />
-        <ImageView
-            android:layout_weight="2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp" />
+
     </LinearLayout>
 
     <ImageView
@@ -57,7 +54,7 @@
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_person"
             android:drawablePadding="20dp"
-            android:hint="age" />
+            android:hint="age " />
         <TextView
             android:layout_marginTop="5dp"
             android:text="Weight"
@@ -70,7 +67,7 @@
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_person"
             android:drawablePadding="20dp"
-            android:hint="weight" />
+            android:hint="weight in kg" />
         <TextView
             android:layout_marginTop="5dp"
             android:text="Height"
@@ -83,7 +80,7 @@
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/ic_person"
             android:drawablePadding="20dp"
-            android:hint="height" />
+            android:hint="height in cm" />
 
 
         <Button

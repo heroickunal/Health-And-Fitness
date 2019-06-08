@@ -41,7 +41,7 @@ public class Tab1Fragment extends Fragment {
     private TextView textView;
     private static final String TAG = "Tab1Fragment";
 
-    private Button btnTEST;
+    private Button btnTEST,btnTEST2;
 
     @Nullable
     @Override
@@ -53,6 +53,15 @@ public class Tab1Fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getActivity().getApplication(),sitUps.class);
+                startActivity(i);
+            }
+        });
+        btnTEST2= (Button) view.findViewById(R.id.pushups);
+
+        btnTEST2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getActivity().getApplication(),pushUps.class);
                 startActivity(i);
             }
         });

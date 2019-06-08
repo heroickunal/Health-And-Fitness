@@ -1,6 +1,10 @@
 package azzukunj.cottonuniversity.healthandfitnesskunjazzu;
 
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -30,6 +34,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.io.UnsupportedEncodingException;
 
+import azzukunj.cottonuniversity.healthandfitnesskunjazzu.converttoless.HoloCircularProgressBar2;
 
 public class HeartRate extends AppCompatActivity {
 
@@ -38,7 +43,11 @@ public class HeartRate extends AppCompatActivity {
     private String clientid = "";
     private Timer myTimer;
     Button subscribe;
+    private HoloCircularProgressBar2 mHoloCircularProgressBar2;
 
+
+
+    private ObjectAnimator mProgressBarAnimator;
 
     TextView tvMessage;
     @Override
@@ -47,7 +56,8 @@ public class HeartRate extends AppCompatActivity {
         setContentView(R.layout.activity_heart_rate);
         subscribe=findViewById(R.id.subscribe);
 
-
+        mHoloCircularProgressBar2 = (HoloCircularProgressBar2) findViewById(
+                R.id.holoCircularProgressBar2);
         tvMessage = (TextView) findViewById(R.id.subscribedMsg);
 
 
@@ -101,6 +111,65 @@ public class HeartRate extends AppCompatActivity {
                 }
             }
         });
+
+
+
+        mHoloCircularProgressBar2.setProgressColor(Color.RED);
+
+        //randomColor = Color.rgb(r.nextInt(256), r.nextInt(256), r.nextInt(256));
+        mHoloCircularProgressBar2.setProgressBackgroundColor(Color.WHITE);
+        animate(mHoloCircularProgressBar2, null, 0, 3000);
+
+
+
+
+
+    }
+
+    private void animate(final HoloCircularProgressBar2 progressBar,
+                         final Animator.AnimatorListener listener) {
+        final float progress = (float) (Math.random() * 2);
+        int duration = 3000;
+        animate(progressBar, listener, progress, duration);
+    }
+    private void animate(final HoloCircularProgressBar2 progressBar, final Animator.AnimatorListener listener,
+                         final float progress, final int duration) {
+
+        mProgressBarAnimator = ObjectAnimator.ofFloat(progressBar, "progress", progress);
+        mProgressBarAnimator.setDuration(duration);
+
+        mProgressBarAnimator.addListener(new Animator.AnimatorListener() {
+
+            @Override
+            public void onAnimationCancel(final Animator animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(final Animator animation) {
+                progressBar.setProgress(progress);
+            }
+
+            @Override
+            public void onAnimationRepeat(final Animator animation) {
+            }
+
+            @Override
+            public void onAnimationStart(final Animator animation) {
+            }
+        });
+        if (listener != null) {
+            mProgressBarAnimator.addListener(listener);
+        }
+        mProgressBarAnimator.reverse();
+        mProgressBarAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(final ValueAnimator animation) {
+                progressBar.setProgress((Float) animation.getAnimatedValue());
+            }
+        });
+        progressBar.setMarkerProgress(progress);
+        mProgressBarAnimator.start();
     }
     private void ScheduleTasks()
     {
@@ -146,7 +215,16 @@ public class HeartRate extends AppCompatActivity {
                 else {
                     String msg = "topic: " + topic + "\r\nMessage: " + message.toString() + "\r\n";
                     tvMessage.setText( msg);
-                }
+                    String bar=message.toString();
+                    if(bar.equals("65"))
+                    {
+                    Random random=new Random();
+                    int r=random.nextInt(75-60+1)+60;
+                    float f=(float)r/100;
+
+                    animate(mHoloCircularProgressBar2, null, f, 3000);
+                    mHoloCircularProgressBar2.setMarkerProgress(f);
+                }}
             }
 
             @Override

@@ -30,12 +30,12 @@ public class Tab3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab3_fragment,container,false);
-        HydrationOn = (Button) view.findViewById(R.id.off);
+        HydrationOn = (Button) view.findViewById(R.id.on);
         HydrationOff = (Button) view.findViewById(R.id.off);
 
         textView=view.findViewById(R.id.onoff);
         SharedPreferences sp=getActivity().getSharedPreferences("preferences",MODE_PRIVATE);
-        String statushydration=sp.getString("statushydration","");
+        String statushydration=sp.getString("statushydration","000");
         textView.setText(statushydration);
 
        HydrationOn.setOnClickListener(new View.OnClickListener() {

@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/lightgreenbackground"
+    >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
         <ImageView
 
             android:id="@+id/imageView"
@@ -24,10 +27,9 @@
             android:id="@+id/on"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-
-            android:background="#64DD17"
-            android:onClick="on"
             android:text="Hydration Timer On"
+            android:background="#64DD17"
+
             android:textColor="#FAFFFFFF"
             android:textSize="24sp"
 
@@ -39,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="#64DD17"
-            android:onClick="off"
             android:text="Hydration Timer Off"
             android:textColor="#FAFFFFFF"
             android:textSize="24sp"

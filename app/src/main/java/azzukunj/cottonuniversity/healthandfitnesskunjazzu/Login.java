@@ -130,7 +130,7 @@ private TextView temp;
                 startActivity(i6);
                 break;
             case R.id.hydration:
-                Intent i7=new Intent(Login.this,Hydration.class);
+                Intent i7=new Intent(Login.this,WeekActivity.class);
                 startActivity(i7);
                 break;
         }

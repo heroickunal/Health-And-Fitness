@@ -23,6 +23,7 @@ import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
 
 
 
-    private Button HeartRate;
+    private Button HeartRate,start,stop,goback;
 
     private HoloCircularProgressBar mHoloCircularProgressBar;
 
@@ -85,7 +86,7 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
     SimpleDateFormat format=new SimpleDateFormat("HH:mm");
     SimpleDateFormat date=new SimpleDateFormat("dd");
 
-
+private static int startstop=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +94,9 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
 
 
         HeartRate = findViewById(R.id.HeartRate);
+        start = findViewById(R.id.start);
+        stop = findViewById(R.id.stop);
+        goback=findViewById(R.id.goback);
         z = (TextView) findViewById(R.id.caloriedispxml);
         caloriedisp = (TextView) findViewById(R.id.tv_steps);
 
@@ -143,7 +147,29 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
                 startActivity(I);
             }
         });
-
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startstop=1;
+            }
+        });
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startstop=0;
+                z.setText(Integer.toString(i));
+                caloriedisp.setText(s);
+                animate(mHoloCircularProgressBar, null, 0.0f, 1000);
+                mHoloCircularProgressBar.setMarkerProgress(0.0f);
+            }
+        });
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent i=new Intent(sitUps.this,Main2Activity.class);
+               startActivity(i);
+            }
+        });
     }  public static int toMins(String s)
     {
         String[] hourmin=s.split(":");
@@ -173,58 +199,48 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
             float zVal = event.values[2];
 
 
-
-
             reps = Math.round(zVal);
-            if (reps > 5) {
-                if (c >0)
-                {
+            if (startstop == 1) {
+                if (reps > 5) {
+                    if (c > 0) {
 
 
+                        i++;
+                        z.setText(Integer.toString(i));
+
+                        calorieburnt = calorieburnt + CALORIE.calculate(age, weight);
+                        s = converttoless.convert(calorieburnt);
+                        caloriedisp.setText(s);
+
+                        if (mProgressBarAnimator != null) {
+                            mProgressBarAnimator.cancel();
+                        }
+                        float j = i;
+                        progress = j / 20;
+                        float putprogress = progress;
+                        animate(mHoloCircularProgressBar, null, putprogress, 1000);
+                        mHoloCircularProgressBar.setMarkerProgress(putprogress);
+
+                        SharedPreferences sp = getSharedPreferences("preferences", MODE_PRIVATE);
 
 
-
-                    i++;
-                    z.setText(Integer.toString(i));
-
-                    calorieburnt=calorieburnt+CALORIE.calculate(age,weight);
-                    s=converttoless.convert(calorieburnt);
-                    caloriedisp.setText(s);
-
-                    if (mProgressBarAnimator != null) {
-                        mProgressBarAnimator.cancel();
-                    }
-                    float j=i;
-                    progress=j/20;
-                    float putprogress=progress;
-                    animate(mHoloCircularProgressBar, null, putprogress, 1000);
-                    mHoloCircularProgressBar.setMarkerProgress(putprogress);
-
-                    SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
+                        int plot = (int) calorieburnt.doubleValue();
+                        SharedPreferences.Editor editor = sp.edit();
+                        String getx = Integer.toString(get);
+                        editor.putString(getx + "day", Integer.toString(plot));
+                        editor.apply();
 
 
-                    int plot = (int)calorieburnt.doubleValue();
-                    SharedPreferences.Editor editor=sp.edit();
-                    String getx=Integer.toString(get);
-                    editor.putString(getx+"day",Integer.toString(plot));
-                    editor.apply();
+                        editor.putString(dd + "week", Integer.toString(plot));
+                        editor.apply();
 
 
-                    editor.putString(dd+"week",Integer.toString(plot));
-                    editor.apply();
+                        editor.putString("r", Integer.toString(plot));
+                        editor.apply();
 
 
-
-
-
-
-                    editor.putString("r",Integer.toString(plot));
-                    editor.apply();
-
-
-
-                    editor.putString("add or not",Integer.toString(1));
-                    editor.apply();
+                        editor.putString("add or not", Integer.toString(1));
+                        editor.apply();
 
                     /*String t=sp.getString("totalcal","0");
                     totalcal=Integer.parseInt(t);
@@ -235,12 +251,12 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
 */
 
 
-                    c = 0;
+                        c = 0;
+                    }
                 }
-            }
-            if(reps<6&&c<1)
-            {
-                c=1;
+                if (reps < 6 && c < 1) {
+                    c = 1;
+                }
             }
         }
     }
@@ -290,10 +306,20 @@ public class sitUps extends AppCompatActivity implements SensorEventListener  {
         progressBar.setMarkerProgress(progress);
         mProgressBarAnimator.start();
     }
-    public void HeartRate(View view)
-    {
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if ( keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            onBackPressed();
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
+    @Override
+    public void onBackPressed() {
 
+        return;
+    }
 }
 

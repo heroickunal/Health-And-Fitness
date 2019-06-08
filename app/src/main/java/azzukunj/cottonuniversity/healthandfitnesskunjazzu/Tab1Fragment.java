@@ -41,24 +41,24 @@ public class Tab1Fragment extends Fragment {
     private TextView textView;
     private static final String TAG = "Tab1Fragment";
 
-    private Button btnTEST,btnTEST2;
+    private Button btn1,btn2,btn3;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab1_fragment,container,false);
-        btnTEST = (Button) view.findViewById(R.id.btnTEST);
+        btn1 = (Button) view.findViewById(R.id.btnTEST);
 
-        btnTEST.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getActivity().getApplication(),sitUps.class);
                 startActivity(i);
             }
         });
-        btnTEST2= (Button) view.findViewById(R.id.pushups);
+        btn2= (Button) view.findViewById(R.id.pushups);
 
-        btnTEST2.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getActivity().getApplication(),pushUps.class);
@@ -66,7 +66,15 @@ public class Tab1Fragment extends Fragment {
             }
         });
 
+        btn3= (Button) view.findViewById(R.id.pedo);
 
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getActivity().getApplication(),Pedometer.class);
+                startActivity(i);
+            }
+        });
         textView=view.findViewById(R.id.total);
         mHoloCircularProgressBar = (HoloCircularProgressBar) view.findViewById(
                 R.id.holoCircularProgressBar);

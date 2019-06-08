@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -31,8 +32,23 @@ public class Main2Activity extends AppCompatActivity {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Fragment(), "EXCERCISES");
         adapter.addFragment(new Tab2Fragment(), "ACTIVITY");
-        adapter.addFragment(new Tab3Fragment(), "EXCERCISES");
+        adapter.addFragment(new Tab3Fragment(), "HYDRATION");
+        adapter.addFragment(new DetailsOfUser(), "HYDRATION");
+
         viewPager.setAdapter(adapter);
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if ( keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 
+            onBackPressed();
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+    @Override
+    public void onBackPressed() {
+
+        return;
+    }
 }

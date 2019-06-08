@@ -13,6 +13,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -51,8 +52,8 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
     Double calorieburnt=0.0;
     String s,xage,xweight,time,dd;
     int age,weight,get;
-    private Button HeartRate;
-
+    private Button HeartRate,start,stop,goback;;
+    private static int startstop=0;
     Calendar calendar=Calendar.getInstance();
     SimpleDateFormat format=new SimpleDateFormat("HH:mm");
     SimpleDateFormat date=new SimpleDateFormat("dd");
@@ -62,6 +63,9 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_push_ups);
         HeartRate = findViewById(R.id.HeartRate);
+        start = findViewById(R.id.start);
+        stop = findViewById(R.id.stop);
+        goback = findViewById(R.id.goback);
 
         mHoloCircularProgressBar = (HoloCircularProgressBar) findViewById(
                 R.id.holoCircularProgressBar);
@@ -110,6 +114,30 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
                 startActivity(I);
             }
         });
+
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startstop=1;
+            }
+        });
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startstop=0;
+                reps.setText(Integer.toString(i));
+                caloriedisp.setText(s);
+                animate(mHoloCircularProgressBar, null, 0.0f, 1000);
+                mHoloCircularProgressBar.setMarkerProgress(0.0f);
+            }
+        });
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(pushUps.this,Main2Activity.class);
+                startActivity(i);
+            }
+        });
     }
     public static int toMins(String s)
     {
@@ -139,28 +167,26 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
         if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
             if (event.values[0] >= -SENSOR_SENSITIVITY && event.values[0] <= SENSOR_SENSITIVITY) {
                 //near
-                Toast.makeText(getApplicationContext(), "near", Toast.LENGTH_SHORT).show();
-                //xx.setText(c);
-                i++;
-                reps.setText(Integer.toString(i));
-                calorieburnt=calorieburnt+CALORIE.calculate(age,weight)+0.2;
-                s=converttoless.convert(calorieburnt);
-                caloriedisp.setText(s);
+                if (startstop == 1) {
+                    Toast.makeText(getApplicationContext(), "near", Toast.LENGTH_SHORT).show();
+                    //xx.setText(c);
+                    i++;
+                    reps.setText(Integer.toString(i));
+                    calorieburnt = calorieburnt + CALORIE.calculate(age, weight) + 0.2;
+                    s = converttoless.convert(calorieburnt);
+                    caloriedisp.setText(s);
 
 
+                    SharedPreferences sp = getSharedPreferences("preferences", MODE_PRIVATE);
+                    int plot = (int) calorieburnt.doubleValue();
+                    SharedPreferences.Editor editor = sp.edit();
+                    String getx = Integer.toString(get);
+                    editor.putString(getx + "day", Integer.toString(plot));
+                    editor.apply();
 
 
-
-                SharedPreferences sp=getSharedPreferences("preferences",MODE_PRIVATE);
-                int plot = (int)calorieburnt.doubleValue();
-                SharedPreferences.Editor editor=sp.edit();
-                String getx=Integer.toString(get);
-                editor.putString(getx+"day",Integer.toString(plot));
-                editor.apply();
-
-
-                editor.putString(dd+"week",Integer.toString(plot));
-                editor.apply();
+                    editor.putString(dd + "week", Integer.toString(plot));
+                    editor.apply();
 /*
                 String t=sp.getString("totalcal","0");
                 totalcal=Integer.parseInt(t);
@@ -170,27 +196,25 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
 */
 
 
+                    editor.putString("r", Integer.toString(plot));
+                    editor.apply();
 
 
-
-                editor.putString("r",Integer.toString(plot));
-                editor.apply();
-
-
-                editor.putString("add or not",Integer.toString(1));
-                editor.apply();
-                if (mProgressBarAnimator != null) {
-                    mProgressBarAnimator.cancel();
+                    editor.putString("add or not", Integer.toString(1));
+                    editor.apply();
+                    if (mProgressBarAnimator != null) {
+                        mProgressBarAnimator.cancel();
+                    }
+                    float j = i;
+                    progress = j / 20;
+                    float putprogress = progress;
+                    animate(mHoloCircularProgressBar, null, putprogress, 1000);
+                    mHoloCircularProgressBar.setMarkerProgress(putprogress);
+                } else {
+                    //far
+                    Toast.makeText(getApplicationContext(), "far", Toast.LENGTH_SHORT).show();
+                    //xx.setText(f);
                 }
-                float j=i;
-                progress=j/20;
-                float putprogress=progress;
-                animate(mHoloCircularProgressBar, null, putprogress, 1000);
-                mHoloCircularProgressBar.setMarkerProgress(putprogress);
-            } else {
-                //far
-                Toast.makeText(getApplicationContext(), "far", Toast.LENGTH_SHORT).show();
-                //xx.setText(f);
             }
         }
     }
@@ -244,6 +268,20 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
         });
         progressBar.setMarkerProgress(progress);
         mProgressBarAnimator.start();
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if ( keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            onBackPressed();
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+    @Override
+    public void onBackPressed() {
+
+        return;
     }
 }
 

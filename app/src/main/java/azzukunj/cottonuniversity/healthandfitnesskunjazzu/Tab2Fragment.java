@@ -36,15 +36,16 @@ public class Tab2Fragment extends Fragment {
         SharedPreferences sp=getActivity().getSharedPreferences("preferences",MODE_PRIVATE);
 
         for(int i=1;i<30;i++)
-        {
+        {            String id=sp.getString("id","ppppppppppppp");
+
             if(i>=1&&i<=9) {
-                String details = sp.getString("0" + Integer.toString(i) + "week", "0");
+                String details = sp.getString(id+"0" + Integer.toString(i) + "week", "0");
                 int y = Integer.parseInt(details);
                 graphSeries.appendData(new DataPoint(i, y), true, 30);
             }
             else
             {
-                String details = sp.getString( Integer.toString(i) + "week", "0");
+                String details = sp.getString( id+Integer.toString(i) + "week", "0");
                 int y = Integer.parseInt(details);
                 graphSeries.appendData(new DataPoint(i, y), true, 30);
             }

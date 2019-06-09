@@ -46,11 +46,11 @@ public class Pedometer extends AppCompatActivity  implements SensorEventListener
     private HoloCircularProgressBar mHoloCircularProgressBar;
 
 
-
+    private float progress=0;
     private ObjectAnimator mProgressBarAnimator;
     private Button HeartRate,start,stop,goback;
     private static int startstop=0;
-
+private int i=0;
 private static String temp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +91,8 @@ private static String temp;
             @Override
             public void onClick(View v) {
                 startstop=1;
+                Toast.makeText(getApplicationContext(), "Started", LENGTH_SHORT).show();
+
             }
         });
         stop.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +103,8 @@ private static String temp;
                 caloriedisp.setText(s);
                 animate(mHoloCircularProgressBar, null, 0.0f, 1000);
                 mHoloCircularProgressBar.setMarkerProgress(0.0f);
+                Toast.makeText(getApplicationContext(), "Stopped", LENGTH_SHORT).show();
+
             }
         });
         goback.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +155,15 @@ private static String temp;
             if (startstop == 1) {
                 tv_steps.setText(String.valueOf(event.values[0]));
                 temp = String.valueOf(event.values[0]);
+i++;
+if (mProgressBarAnimator != null) {
+                    mProgressBarAnimator.cancel();
+                }
+                float j = i;
+                progress = j / 20;
+                float putprogress = progress;
+                animate(mHoloCircularProgressBar, null, putprogress, 1000);
+                mHoloCircularProgressBar.setMarkerProgress(putprogress);
 
                 calorieburnt = calorieburnt + CALORIE.calculate(age, weight) - 0.2;
                 s = converttoless.convert(calorieburnt);

@@ -119,6 +119,8 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
             @Override
             public void onClick(View v) {
                 startstop=1;
+                Toast.makeText(getApplicationContext(), "Started", LENGTH_SHORT).show();
+
             }
         });
         stop.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +129,8 @@ public class pushUps extends AppCompatActivity implements SensorEventListener {
                 startstop=0;
                 reps.setText(Integer.toString(i));
                 caloriedisp.setText(s);
+                Toast.makeText(getApplicationContext(), "Stopped", LENGTH_SHORT).show();
+
                 animate(mHoloCircularProgressBar, null, 0.0f, 1000);
                 mHoloCircularProgressBar.setMarkerProgress(0.0f);
             }

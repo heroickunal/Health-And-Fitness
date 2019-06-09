@@ -40,6 +40,7 @@ import azzukunj.cottonuniversity.healthandfitnesskunjazzu.calorie.calorie;
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.converttoless.converttoless;
 import azzukunj.cottonuniversity.healthandfitnesskunjazzu.holocircularprogressbar.HoloCircularProgressBar;
 
+import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
 
 
@@ -114,7 +115,6 @@ private static int startstop=0;
         try {
             age = Integer.parseInt(xage);
             weight = Integer.parseInt(xweight);
-            Toast.makeText(getApplicationContext(), "HEART RATE DEVICE NOT CONNECTED", LENGTH_SHORT).show();
         } catch (NumberFormatException nfe) {
             System.out.print("wwwwrrroooonngggggggg");
         }
@@ -151,6 +151,7 @@ private static int startstop=0;
             @Override
             public void onClick(View v) {
                 startstop=1;
+                Toast.makeText(getApplicationContext(), "Started", LENGTH_SHORT).show();
             }
         });
         stop.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +162,8 @@ private static int startstop=0;
                 caloriedisp.setText(s);
                 animate(mHoloCircularProgressBar, null, 0.0f, 1000);
                 mHoloCircularProgressBar.setMarkerProgress(0.0f);
+                Toast.makeText(getApplicationContext(), "Stopped", LENGTH_SHORT).show();
+
             }
         });
         goback.setOnClickListener(new View.OnClickListener() {

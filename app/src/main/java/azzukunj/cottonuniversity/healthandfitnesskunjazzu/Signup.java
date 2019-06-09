@@ -33,9 +33,9 @@ public class Signup extends AppCompatActivity {
         String newpass=uppass.getText().toString();
         SharedPreferences.Editor edit=sp.edit();
 
-        edit.putString(newemail+newpass,newname+newemail);  //STORE THE USER INFO
+        edit.putString(newemail+newpass,newemail+newpass);  //STORE THE USER INFO
         String id=newemail+newpass;
-
+edit.apply();
         SharedPreferences.Editor editor=sp.edit();
 
         edit.putString(id+"email",newemail);  //STORE THE USER INFO
